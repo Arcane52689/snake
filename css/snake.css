@@ -1,0 +1,62 @@
+html, body, ul, li,
+h1, h2, a, button, head {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+
+  background: transparent;
+  color: inherit;
+
+  font: inherit;
+}
+
+body {
+  font-family: sans-serif;
+  background: #000;
+}
+
+.group:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+ul {
+  list-style: none;
+}
+
+header {
+  font-size: 36px;
+  font-weight: 700;
+  /*width: 199px;*/
+  margin: auto;
+  color: black;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.board {
+  padding: 200px;
+  margin: auto;
+  width: 400px;
+  height: 200px;
+
+}
+
+.board > li {
+  display: block;
+  float: left;
+  background: #eee;
+  width: 8px;  /* make 10px */
+  height: 8px; /* make 10px */
+  border: 1px dotted #aaa; /* TODO: remove after troubleshooting */
+}
+
+.board > .snake {
+  background: #070;
+}
+
+/*.board > .apple {
+
+}*/
