@@ -50,9 +50,19 @@
     for (var i = 0; i < total; i++) {
       this.$el.append(html);
     }
+    var ticks = 0
+
+    var gameOver = function() {
+      
+    };
 
     var tick = function() {
       this.board.snake.move();
+      this.board.checkApples();
+      ticks += 1
+      if (ticks % 12 === 0) {
+        this.board.addApple()
+      }
       this.render();
     }
 
@@ -60,7 +70,7 @@
     this.render();
     this.handleKeyEvent();
 
-    setInterval(tick.bind(this), 500);
+    setInterval(tick.bind(this), 250);
   };
 
   View.prototype.render = function() {

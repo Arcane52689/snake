@@ -6,7 +6,7 @@
 
   var DIRS = {"N": [0,-1], "E": [1, 0], "S": [0, 1], "W": [-1, 0]};
   var POS = [20, 10];
-  var THRESHOLD = 2;
+  var THRESHOLD = 1;
 
   var Lizard = Snake.Snake = function() {
     this.dir = DIRS["E"];

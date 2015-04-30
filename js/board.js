@@ -70,21 +70,50 @@
     return this.snake.segments.concat(this.apples);
   }
 
+  Board.prototype.checkApples = function() {
+    var head = this.snake.segments[0].pos();
+    this.apples.forEach(function(apple, index) {
+      if (apple.equals(head)) {
+        this.snake.eatsAnApple();
+        this.apples.splice(index, 1)
+      }
+    }.bind(this));
+  };
+
   Board.prototype.addApple = function() {
     var newCoord = null;
 
-    var random = function() {
+    var randomPos = function() {
       var x = Math.floor(Math.random() * this.dimX);
       var y = Math.floor(Math.random() * this.dimY);
       var objects = this.allObjects();
       for (var i = 0; i < objects.length; i++) {
         if (objects[i].equals([x,y])) {
-          return random.call(this);
+          return randomPos.call(this);
         }
       }
-      newCoord = new Snake.Coord([x, y]);
+      return new Snake.Coord([x, y]);
     }
-    this.apples.push(newCoord);
+    this.apples.push(randomPos.call(this));
   };
+
+  Board.prototype.outOfBounds = function() {
+    var head = this.snake.segments[0]
+    if ( (head.x < 0) || head.x > this.dimX) {
+      return true;
+    }
+    else if ((head.y < 0 ) || (head.y > this.dimY)) {
+      return true;
+    }
+    else {
+      return false;
+    }
+
+  };
+
+  Board.prototype.gameOver = function() {
+    return (this.outOfBounds())
+  }
+
 
 })();
