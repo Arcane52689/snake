@@ -60,3 +60,11 @@ header {
 .board > .apple {
   background: red;
 }
+
+.board > .over {
+  background: #red;
+}
+
+.board > .letter {
+  background: #070;
+}
