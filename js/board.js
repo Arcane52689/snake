@@ -94,7 +94,9 @@
       }
       return new Snake.Coord([x, y]);
     }
-    this.apples.push(randomPos.call(this));
+    if (this.apples.length < 10){
+      this.apples.push(randomPos.call(this));
+    }
   };
 
   Board.prototype.outOfBounds = function() {
@@ -112,7 +114,7 @@
   };
 
   Board.prototype.gameOver = function() {
-    return (this.outOfBounds())
+    return ((this.outOfBounds()) || (this.snake.suicide()))
   }
 
 

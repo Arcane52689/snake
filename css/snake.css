@@ -1,5 +1,5 @@
 html, body, ul, li,
-h1, h2, a, button, head {
+h1, h2, h3, h6, a, button, head {
   border: 0;
   margin: 0;
   padding: 0;
@@ -29,15 +29,40 @@ ul {
 header {
   font-size: 36px;
   font-weight: 700;
-  /*width: 199px;*/
   margin: auto;
-  color: black;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  width: 400px;
+  color: red;
+
+  text-align: center;
+}
+
+header > h1 {
+  font: sans-serif;
+}
+
+header > h3 {
+  font-size: 16px;
+  padding-top: 10px;
+
+}
+
+
+.score {
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  display: block;
+  width: 400px;
+  margin: auto;
+  text-align: center;
+}
+
+.inactive {
+  display:none;
 }
 
 .board {
-  padding: 200px;
+  padding-top: 100px;
   margin: auto;
   width: 400px;
   height: 200px;

@@ -41,6 +41,7 @@
   var View = Snake.View = function(board, $el) {
     this.board = board;
     this.$el = $el;
+    this.score = 0
   };
 
   View.prototype.turnSnake = function(dir) {
@@ -137,10 +138,15 @@
 
   View.prototype.isGameOver = function() {
     if (this.board.gameOver()) {
-      this.board = null;
+      this.displayScore()
       clearInterval(this.interval)
       this.renderOver();
     }
+  };
+
+  View.prototype.displayScore = function() {
+    this.score += this.board.snake.segments.length * 10;
+    $(".score").removeClass("inactive").append(this.score);
   };
 
 })();
