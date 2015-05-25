@@ -17,13 +17,13 @@
   };
 
   Lizard.prototype.move = function() {
-    var frontPos = this.segments[0].pos();
-    var newCoord = new Snake.Coord(frontPos);
+    var newCoord = new Snake.Coord(this.segments[0].pos());
     newCoord.plus(this.dir);
     this.segments.unshift(newCoord);
     if (this.hasEaten) {
       this.hasEaten = false;
-    } else {
+    }
+    else {
       this.segments.pop();
     }
   };

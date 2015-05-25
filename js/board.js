@@ -21,21 +21,8 @@
 
     for (var i = 0; i < this.dimY; i++) {
       var rowString = "";
-
       for (var j = 0; j < this.dimX; j++) {
-        // var isSegment = false;
-        //
-        // this.snake.segments.forEach(function(coord) {
-        //   if (coord.equals([j,i])) {
-        //     isSegment = true;
-        //   }
-        // });
-        //
-        // if (isSegment) {
-        //   rowString += "S";
-        // } else {
-        //   rowString += ".";
-        // }
+    
         var isSegment = false;
         var isApple = false;
 

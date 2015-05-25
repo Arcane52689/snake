@@ -93,7 +93,8 @@
       this.board.snake.move();
       this.board.checkApples();
       ticks += 1
-      if (ticks % 12 === 0) {
+      if (ticks % 20 === 0) {
+        // adds an apple every 5 seconds(unless there are more than 10)
         this.board.addApple()
       }
       this.render();
@@ -115,7 +116,8 @@
       $child.removeClass();
       if (boardString[i] === "S") {
         $child.addClass("snake");
-      } else if (boardString[i] === "a") {
+      }
+      else if (boardString[i] === "a") {
         $child.addClass("apple");
       }
     }
@@ -124,11 +126,8 @@
 
   View.prototype.renderOver = function() {
     var $children = this.$el.children()
-    for (var i = 0; i < 800; i++) {
-      var child = $($children[i]);
-      child.removeClass();
-      child.addClass("over");
-    }
+    $children.removeClass().addClass("over")
+
     for (var i=0; i < GAMEOVER.length; i++) {
       var child = $($children[GAMEOVER[i]]);
       child.removeClass();
